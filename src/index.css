@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  --font-display: 'Fredoka', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Nunito', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg, #38bdf8 0%, #bae6fd 100%);
+  user-select: none;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+.btn-blox {
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  box-shadow: 0 5px 0 rgba(15, 23, 42, 0.26);
+}
+.btn-blox:hover:not(:disabled) {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 rgba(15, 23, 42, 0.26);
+}
+.btn-blox:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 rgba(15, 23, 42, 0.26);
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float {
+  animation: floatSlow 3s ease-in-out infinite;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.94) translateY(8px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-pop {
+  animation: popIn 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes shakeWrong {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+.animate-shake {
+  animation: shakeWrong 0.35s ease;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.85);
+  border-radius: 999px;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 999px;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Surface panel without backdrop-filter over WebGL canvas to keep software WebGL snappy */
+.surface-panel {
+  background: rgba(255, 255, 255, 0.96);
+  border: 2px solid rgba(255, 255, 255, 0.92);
+}
+
+.player-nametag {
+  position: fixed;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  z-index: 12;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float, .animate-pop, .animate-shake {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "EDUBLOX CITY BY SITTY",
+  "description": "Pembelajaran Desain Komunikasi Visual (DKV) Kelas X SMK interaktif berbasis dunia voxel 3D, kuis 4-Way Split Screen, Kantin Edublox, Panel Guru, dan Rekap Nilai.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
